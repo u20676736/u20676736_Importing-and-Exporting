@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ImportExportPractical.Models.Order>
+
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Orders</h2>
+<button> @Html.ActionLink(" ", "Export", new { id = item.OrderId }, new { @class = "modal-link1", @OnClick = "return confirm('Are you sure you to export this Record?');" })</button>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            Order Number
+        </th>
+        <th>
+            Product Name
+        </th>
+        <th>
+            Supplier Name
+        </th>
+        <th>
+            Supplier Contact Number
+        </th>
+        <th>
+            Unit Price
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>
+            Total
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Suppliers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplierName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplierContactNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalAmount)
+            </td>
+            <td>
+
+        </tr>
+    }
+</table>
